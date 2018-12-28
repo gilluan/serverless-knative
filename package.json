@@ -1,5 +1,5 @@
 {
-  "name": "knative-nodejs",
+  "name": "serverless-knative",
   "version": "1.0.0",
   "description": "knative plugin",
   "main": "index.js",

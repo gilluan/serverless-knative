@@ -1,6 +1,7 @@
 'use strict';
 
-const KnativeProvider = require('./provider/knativeProvider');
+const KnativeProvider = require('./provider');
+const KnativeDeploy = require('./deploy');
 
 // const KnativeProvider = require('./provider/knativeProvider');
 // const KnativeDeploy = require('./deploy/knativeDeploy');
@@ -14,7 +15,9 @@ class KnativeIndex {
     this.serverless = serverless;
     this.options = options;
     this.serverless.pluginManager.addPlugin(KnativeProvider);
+    this.serverless.pluginManager.addPlugin(KnativeDeploy);
   }
 }
+
 
 module.exports = KnativeIndex;
