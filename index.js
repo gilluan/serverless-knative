@@ -1,52 +1,20 @@
 'use strict';
 
-class ServerlessPlugin {
+const KnativeProvider = require('./provider/knativeProvider');
+
+// const KnativeProvider = require('./provider/knativeProvider');
+// const KnativeDeploy = require('./deploy/knativeDeploy');
+// const KnativeRemove = require('./remove/knativeRemove');
+// const KnativeInvoke = require('./invoke/knativeInvoke');
+// const KnativeInfo = require('./info/knativeInfo');
+// const KnativeLogs = require('./logs/knativeLogs');
+
+class KnativeIndex {
   constructor(serverless, options) {
     this.serverless = serverless;
     this.options = options;
-
-    this.commands = {
-      welcome: {
-        usage: 'Helps you start your first Serverless plugin',
-        lifecycleEvents: [
-          'hello',
-          'world',
-        ],
-        options: {
-          message: {
-            usage:
-              'Specify the message you want to deploy '
-              + '(e.g. "--message \'My Message\'" or "-m \'My Message\'")',
-            required: true,
-            shortcut: 'm',
-          },
-        },
-      },
-    };
-
-    this.hooks = {
-      'before:welcome:hello': this.beforeWelcome.bind(this),
-      'welcome:hello': this.welcomeUser.bind(this),
-      'welcome:world': this.displayHelloMessage.bind(this),
-      'after:welcome:world': this.afterHelloWorld.bind(this),
-    };
-  }
-
-  beforeWelcome() {
-    this.serverless.cli.log('Hello from Serverless!');
-  }
-
-  welcomeUser() {
-    this.serverless.cli.log('Your message:');
-  }
-
-  displayHelloMessage() {
-    this.serverless.cli.log(`${this.options.message}`);
-  }
-
-  afterHelloWorld() {
-    this.serverless.cli.log('Please come again!');
+    this.serverless.pluginManager.addPlugin(KnativeProvider);
   }
 }
 
-module.exports = ServerlessPlugin;
+module.exports = KnativeIndex;

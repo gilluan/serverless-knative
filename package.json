@@ -1,0 +1,25 @@
+{
+  "name": "knative-nodejs",
+  "version": "1.0.0",
+  "description": "knative plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilluan/serverless-knative.git"
+  },
+  "keywords": [
+    "knative",
+    "serverless",
+    "knative-serverless",
+    "istio"
+  ],
+  "author": "gilluan.formiga@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilluan/serverless-knative/issues"
+  },
+  "homepage": "https://github.com/gilluan/serverless-knative#readme"
+}
